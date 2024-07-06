@@ -34,6 +34,10 @@ jest.mock("../models/user", () => ({
 }));
 
 describe("create user", () => {
+
+  afterEach(() => {
+    jest.clearAllMocks();
+  });
   it("should throw validation error", async () => {
     registrationSchema.validate.mockReturnValueOnce({
       error: { details: [{ message: "Validation error" }] },

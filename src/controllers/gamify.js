@@ -15,7 +15,6 @@ const {
 } = require("../enums");
 const UserChallenge = require("../models/userChallenge");
 const Leader = require("../models/leader");
-const io = require("../../app");
 const Product = require("../models/product");
 const Badge = require("../models/badge");
 const Achievement = require("../models/achievement");
@@ -36,10 +35,7 @@ const createChallenge = asyncHandler(async (req, res, next) => {
 });
 
 const createProduct = asyncHandler(async (req, res, next) => {
-  // const { error } = challengeSchema.validate(req.body);
-
-  // if (error) return next(new ErrorResponse(error.details[0].message, 400));
-
+ 
   const product = await Product.create(req.body);
 
   res.status(201).json({
